@@ -42,4 +42,11 @@ gulp.task('compass', function(done) {
     done();
 });
 
-gulp.task('all', gulp.parallel(['coffee', 'js', 'compass']));
+gulp.task('watch', function (done) {
+    gulp.watch(coffeeSources, gulp.series(['coffee']));
+    gulp.watch(jsSources, gulp.series(['js']));
+    gulp.watch('components/sass/*.scss', gulp.series(['compass']));
+    done();
+});
+
+gulp.task('default', gulp.parallel(['coffee', 'js', 'compass']));
