@@ -49,4 +49,4 @@ gulp.task('watch', function (done) {
     done();
 });
 
-gulp.task('default', gulp.parallel(['coffee', 'js', 'compass']));
+gulp.task('default', gulp.series(['coffee', 'js', 'compass', 'watch']));
